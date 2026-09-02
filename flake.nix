@@ -14,10 +14,10 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
-     jekyll
+          bundler
+          # jekyll
         ];
 
-     
       };
     };
 }
