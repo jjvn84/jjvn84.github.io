@@ -3,6 +3,8 @@
 Caracas, Venezuela | +58-412-2059002 | jjvn84@gmail.com
 [GitHub](https://github.com/jjvn84) | [LinkedIn](https://www.linkedin.com/in/juan-j-vasquez/)
 
+<a href="{{ '/assets/juan-vasquez-cv.pdf' | relative_url }}" download><strong>Download CV (PDF)</strong></a>
+
 ## Professional Summary
 
 Backend software developer blending deep technical expertise in machine learning, cloud infrastructure, and system automation with extensive client-facing experience. Proficient in designing robust data pipelines, developing APIs, and managing Linux-based environments. Highly skilled at bridging the gap between complex backend systems, advanced analytics, and customer success.
