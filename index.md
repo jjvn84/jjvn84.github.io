@@ -18,9 +18,17 @@ Backend software developer blending deep technical expertise in machine learning
 | Category                    | Technologies & Skills                                                                                                                                   |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Languages & Frameworks**  | Python (PyTorch, Flask, FastAPI), Rust (Dioxus, Actix-Web), SQL                                                                                         |
-| **Cloud & Infrastructure**  | Amazon Web Services (AWS EC2, Lightsail, Lambda), S3 Bucket Management, IAM Policies, Docker, Linux (Debian, NixOS)                                     |
+| **Cloud & Infrastructure**  | AWS (EC2, Lightsail, Lambda, S3, IAM), Docker, Linux (Debian, NixOS), GitHub Actions, AWS CodeDeploy, Terraform (basics)                                |
 | **Data & Machine Learning** | Machine Learning, Deep Learning, Computer Vision, Signal Processing (CWT), Extract, Transform, and Load Processes (ETL), Data Pipelines, Zoho Analytics |
-| **Engineering & Delivery**  | Backend Development, API Development, API Integration, Zapier, Workflow Automation, HelpScout, Customer Service                                         |
+| **Engineering & Delivery**  | Backend Development, API Development, API Integration, Zapier, Workflow Automation, AI-Assisted Development, HelpScout, Customer Service                |
+
+## Things I've Built
+
+- **Installation report review** — Flask web app where a team of reviewers approves or rejects installation reports from field technicians. It polls Airtable for new tasks, compiles each technician's data from XOi Vision, and presents reviewers with the quality assurance questions and the evidence needed to answer them. Supports junior and senior reviewer roles, writes results back to Airtable, and keeps every reviewer's screen in sync over WebSocket. _(Python, Flask, Bootstrap, Airtable, WebSocket)_
+- **Rooftop asset detection** — Custom computer vision model that scans aerial imagery for items of interest on rooftops, giving a client a new pipeline of sales prospects. _(Python, PyTorch, AWS EC2, Docker)_
+- **Zapier integrations** — Connected corporate email, Spiro, HubSpot, Dropbox, and JotForm into automated workflows, with error handling and rollback of changes made by unauthorized users.
+- **Zoho Analytics dashboards** — Built dashboards and reports with bar charts, pivot tables, maps, and Sankey diagrams, backed by SQL queries that restructure raw client data into the metrics decision-makers need.
+- **Shopping List** — Mobile and desktop app for keeping track of groceries, built entirely in Rust with Dioxus, using SQLite for storage and Tailwind CSS for styling. My entry point into mobile development and the Dioxus framework. ([source](https://github.com/jjvn84/shopping_list))
 
 ## Open Source Contributions
 
