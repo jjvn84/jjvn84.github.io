@@ -4,59 +4,51 @@ title: Juan Vásquez — Backend Software Developer
 description: Backend software developer skilled in machine learning, cloud infrastructure (AWS), data pipelines, and Python APIs, with strong client-facing experience.
 ---
 
+{% assign cv = site.data.cv %}
+{% assign working_languages = cv.languages | where_exp: "language", "language.level != 'Beginner'" %}
+
 <section class="hero">
   <div class="wrap hero__inner">
     <div class="hero__copy">
-      <p class="eyebrow">Backend developer &middot; Remote</p>
-      <h1 class="hero__title">Juan Vásquez</h1>
-      <p class="hero__lead">
-        I build the systems behind the product: backend services, data pipelines,
-        and computer vision that has to work in the real world.
-      </p>
-      <p class="hero__sub">
-        Five years writing software, twenty in engineering. Comfortable moving
-        between Python, Rust and AWS, and between the technical problem and the
-        client conversation that decides what actually gets built.
-      </p>
+      <p class="eyebrow">{{ cv.role | escape }} &middot; Remote</p>
+      <h1 class="hero__title">{{ cv.name | escape }}</h1>
+      <p class="hero__lead">{{ cv.hero.lead | escape }}</p>
+      <p class="hero__sub">{{ cv.hero.sub | escape }}</p>
 
       <div class="cta">
         <a class="btn btn--primary" href="{{ '/assets/juan-vasquez-cv.pdf' | relative_url }}" download>
           Download CV
           <span aria-hidden="true">&darr;</span>
         </a>
-        <a class="btn" href="mailto:jjvn84@gmail.com">Email me</a>
+        <a class="btn" href="mailto:{{ cv.email }}">Email me</a>
       </div>
 
       <div class="hero__links">
-        <a href="https://github.com/jjvn84">
+        <a href="{{ cv.github }}">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
           GitHub
         </a>
-        <a href="https://www.linkedin.com/in/juan-j-vasquez/">
+        <a href="{{ cv.linkedin }}">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.02H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
           LinkedIn
         </a>
-        <a href="mailto:jjvn84@gmail.com">jjvn84@gmail.com</a>
+        <a href="mailto:{{ cv.email }}">{{ cv.email }}</a>
       </div>
     </div>
 
     <aside class="panel" data-reveal>
-      <div class="panel__row">
-        <span class="panel__label">Currently</span>
-        <span class="panel__value">Customer Success Manager</span>
-        <span class="panel__sub">Spiro.AI</span>
-      </div>
-      <div class="panel__row">
-        <span class="panel__label">Focus</span>
-        <span class="panel__value">Backend &middot; Data &middot; Computer Vision</span>
-      </div>
-      <div class="panel__row">
-        <span class="panel__label">Based in</span>
-        <span class="panel__value">Caracas, Venezuela &middot; UTC&minus;4</span>
-      </div>
+      {% for row in cv.panel %}
+        <div class="panel__row">
+          <span class="panel__label">{{ row.label | escape }}</span>
+          <span class="panel__value">{{ row.value | escape }}</span>
+          {% if row.sub %}<span class="panel__sub">{{ row.sub | escape }}</span>{% endif %}
+        </div>
+      {% endfor %}
       <div class="panel__row">
         <span class="panel__label">Languages</span>
-        <span class="panel__value">Spanish &middot; English &middot; Portuguese</span>
+        <span class="panel__value">
+          {% for language in working_languages %}{{ language.name | escape }}{% unless forloop.last %} &middot; {% endunless %}{% endfor %}
+        </span>
       </div>
       <a class="panel__link" href="{{ '/assets/juan-vasquez-cv.pdf' | relative_url }}" download>
         Download the full CV <span aria-hidden="true">&rarr;</span>
@@ -79,98 +71,23 @@ description: Backend software developer skilled in machine learning, cloud infra
     </div>
 
     <div class="projects">
-      <article class="project project--featured" data-reveal>
-        <div class="project__head">
-          <h3>Installation report review</h3>
-          <span class="project__tag">Internal tool</span>
-        </div>
-        <p>
-          A review console for field installation reports. It polls Airtable for
-          new tasks, pulls technician data from XOi Vision, and shows reviewers
-          the QA questions and supporting evidence in one screen. Junior and
-          senior reviewer roles, live updates over WebSocket, and results written
-          back to Airtable.
-        </p>
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">Flask</span>
-          <span class="chip">Bootstrap</span>
-          <span class="chip">Airtable</span>
-          <span class="chip">WebSocket</span>
-        </div>
-      </article>
-
-      <article class="project" data-reveal>
-        <div class="project__head">
-          <h3>Rooftop asset detection</h3>
-          <span class="project__tag">Computer vision</span>
-        </div>
-        <p>
-          A custom model that scans aerial imagery for items of interest on
-          rooftops, giving a client a new pipeline of sales prospects.
-        </p>
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">PyTorch</span>
-          <span class="chip">AWS EC2</span>
-          <span class="chip">Docker</span>
-        </div>
-      </article>
-
-      <article class="project" data-reveal>
-        <div class="project__head">
-          <h3>Zapier integrations</h3>
-          <span class="project__tag">Automation</span>
-        </div>
-        <p>
-          Connected corporate email, Spiro, HubSpot, Dropbox and JotForm into
-          automated workflows, with error handling and rollback of changes made
-          by unauthorized users.
-        </p>
-        <div class="chips">
-          <span class="chip">Zapier</span>
-          <span class="chip">HubSpot</span>
-          <span class="chip">Dropbox</span>
-          <span class="chip">JotForm</span>
-        </div>
-      </article>
-
-      <article class="project" data-reveal>
-        <div class="project__head">
-          <h3>Zoho Analytics dashboards</h3>
-          <span class="project__tag">Analytics</span>
-        </div>
-        <p>
-          Dashboards and reports built on SQL queries that restructure raw client
-          data into the metrics decision-makers need: bar charts, pivot tables,
-          maps and Sankey diagrams.
-        </p>
-        <div class="chips">
-          <span class="chip">Zoho Analytics</span>
-          <span class="chip">SQL</span>
-        </div>
-      </article>
-
-      <article class="project" data-reveal>
-        <div class="project__head">
-          <h3>Shopping List</h3>
-          <span class="project__tag">Side project</span>
-        </div>
-        <p>
-          A mobile and desktop app for keeping track of groceries, built entirely
-          in Rust with Dioxus. My entry point into mobile development and the
-          framework.
-        </p>
-        <div class="chips">
-          <span class="chip">Rust</span>
-          <span class="chip">Dioxus</span>
-          <span class="chip">SQLite</span>
-          <span class="chip">Tailwind CSS</span>
-        </div>
-        <a class="project__link" href="https://github.com/jjvn84/shopping_list">
-          View source <span aria-hidden="true">&rarr;</span>
-        </a>
-      </article>
+      {% for project in cv.projects %}
+        <article class="project{% if project.featured %} project--featured{% endif %}" data-reveal>
+          <div class="project__head">
+            <h3>{{ project.title | escape }}</h3>
+            <span class="project__tag">{{ project.tag | escape }}</span>
+          </div>
+          <p>{{ project.description | escape }}</p>
+          <div class="chips">
+            {% for tech in project.stack %}<span class="chip">{{ tech | escape }}</span>{% endfor %}
+          </div>
+          {% if project.link %}
+            <a class="project__link" href="{{ project.link }}">
+              View source <span aria-hidden="true">&rarr;</span>
+            </a>
+          {% endif %}
+        </article>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -188,61 +105,14 @@ description: Backend software developer skilled in machine learning, cloud infra
     </div>
 
     <div class="skills">
-      <div class="skill-group" data-reveal>
-        <h3>Languages &amp; frameworks</h3>
-        <div class="chips">
-          <span class="chip chip--soft">Python</span>
-          <span class="chip chip--soft">Rust</span>
-          <span class="chip chip--soft">SQL</span>
-          <span class="chip chip--soft">PyTorch</span>
-          <span class="chip chip--soft">Flask</span>
-          <span class="chip chip--soft">FastAPI</span>
-          <span class="chip chip--soft">Dioxus</span>
-          <span class="chip chip--soft">Actix-Web</span>
+      {% for group in cv.skill_groups %}
+        <div class="skill-group" data-reveal>
+          <h3>{{ group.title | escape }}</h3>
+          <div class="chips">
+            {% for item in group.items %}<span class="chip chip--soft">{{ item | escape }}</span>{% endfor %}
+          </div>
         </div>
-      </div>
-
-      <div class="skill-group" data-reveal>
-        <h3>Cloud &amp; infrastructure</h3>
-        <div class="chips">
-          <span class="chip chip--soft">AWS EC2</span>
-          <span class="chip chip--soft">Lightsail</span>
-          <span class="chip chip--soft">Lambda</span>
-          <span class="chip chip--soft">S3</span>
-          <span class="chip chip--soft">IAM</span>
-          <span class="chip chip--soft">Docker</span>
-          <span class="chip chip--soft">Linux</span>
-          <span class="chip chip--soft">GitHub Actions</span>
-          <span class="chip chip--soft">CodeDeploy</span>
-          <span class="chip chip--soft">Terraform (basics)</span>
-        </div>
-      </div>
-
-      <div class="skill-group" data-reveal>
-        <h3>Data &amp; machine learning</h3>
-        <div class="chips">
-          <span class="chip chip--soft">Machine Learning</span>
-          <span class="chip chip--soft">Deep Learning</span>
-          <span class="chip chip--soft">Computer Vision</span>
-          <span class="chip chip--soft">Signal Processing</span>
-          <span class="chip chip--soft">ETL</span>
-          <span class="chip chip--soft">Data Pipelines</span>
-          <span class="chip chip--soft">Zoho Analytics</span>
-        </div>
-      </div>
-
-      <div class="skill-group" data-reveal>
-        <h3>Engineering &amp; delivery</h3>
-        <div class="chips">
-          <span class="chip chip--soft">API development</span>
-          <span class="chip chip--soft">API integration</span>
-          <span class="chip chip--soft">Zapier</span>
-          <span class="chip chip--soft">Workflow automation</span>
-          <span class="chip chip--soft">AI-assisted development</span>
-          <span class="chip chip--soft">HelpScout</span>
-          <span class="chip chip--soft">Customer success</span>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -261,116 +131,23 @@ description: Backend software developer skilled in machine learning, cloud infra
     </div>
 
     <ol class="timeline">
-      <li class="job" data-reveal>
-        <div class="job__head">
-          <div>
-            <h3 class="job__role">Customer Success Manager</h3>
-            <p class="job__company">Spiro.AI &middot; Caracas, Venezuela (Remote)</p>
+      {% for job in cv.experience %}
+        <li class="job" data-reveal>
+          <div class="job__head">
+            <div>
+              <h3 class="job__role">{{ job.role | escape }}</h3>
+              <p class="job__company">{{ job.company | escape }} &middot; {{ job.location | escape }}</p>
+            </div>
+            <p class="job__dates">{{ job.dates | escape }}</p>
           </div>
-          <p class="job__dates">Feb 2024 &mdash; Present</p>
-        </div>
-        <details open>
-          <summary>What I do</summary>
-          <ul>
-            <li>Develop custom automated workflows to handle the customer&rsquo;s data and internal processes.</li>
-            <li>Create customized dashboards and reports for clients&rsquo; Business Intelligence departments, leveraging platforms like Zoho Analytics.</li>
-            <li>Develop advanced SQL queries to extract meaningful insights from complex datasets.</li>
-            <li>Analyze and map client data fields to ensure accurate integration into the Spiro system, including data sorting and restructuring.</li>
-            <li>Manage and resolve client support tickets, ensuring timely and effective solutions.</li>
-            <li>Act as a technical liaison between clients and the development team to report bugs, suggest improvements, and implement workarounds.</li>
-            <li>Run weekly and monthly video meetings with clients to address issues, provide guidance, and answer questions about the Spiro app.</li>
-          </ul>
-        </details>
-      </li>
-
-      <li class="job" data-reveal>
-        <div class="job__head">
-          <div>
-            <h3 class="job__role">Software Engineer</h3>
-            <p class="job__company">HI4AI (Human Intelligence for Artificial Intelligence) &middot; Caracas, Venezuela (Remote)</p>
-          </div>
-          <p class="job__dates">Mar 2021 &mdash; Feb 2024</p>
-        </div>
-        <details open>
-          <summary>What I built</summary>
-          <ul>
-            <li>Led multiple projects and proof of concepts (POCs) focused on leveraging technology to address client challenges through system integration and web application development.</li>
-            <li>Deployed scalable solutions primarily on AWS (EC2, Lightsail, Lambda) and occasionally on Azure Virtual Machines, securing architecture through robust IAM policies and stringent S3 bucket owner enforcement.</li>
-            <li>Developed a custom computer vision model to analyze aerial images, identifying items of interest on rooftops to assist clients in generating sales prospects.</li>
-            <li>Built several tools to convert data from JSON, XML, or plain text formats into various file structures or directly into databases.</li>
-            <li>Designed and implemented a web app for reviewing and approving installation reports, integrating data from the client&rsquo;s XOi account and sending results to Airtable.</li>
-            <li>Developed a custom keypoint detection model to evaluate hand-drawn sketches against specified validity criteria.</li>
-            <li>Created an automated tool to monitor Jira tasks, providing alerts based on specific conditions, along with a web app for managing tool activation and filter settings.</li>
-            <li>Created a web app to analyze real estate market data, summarizing recent sales information for client decision-making.</li>
-            <li>Used Python as the primary language and supported the team in debugging JavaScript code.</li>
-            <li>Gained experience using Docker containers for application development.</li>
-          </ul>
-        </details>
-      </li>
-
-      <li class="job" data-reveal>
-        <div class="job__head">
-          <div>
-            <h3 class="job__role">Drilling Specialist and Director</h3>
-            <p class="job__company">VENPERCA Proyectos y Servicios &middot; Caracas, Venezuela</p>
-          </div>
-          <p class="job__dates">Jul 2019 &mdash; Sep 2020</p>
-        </div>
-        <details>
-          <summary>What I did</summary>
-          <ul>
-            <li>Calculated head losses from wells to the main water line, selecting and installing appropriate well pumps to optimize water flow and efficiency.</li>
-            <li>Designed and installed electrical control panels for well pumps and hydro-pneumatic systems, ensuring reliable operation and maintenance of water supply systems.</li>
-            <li>Operated XY-3 well drilling machines to drill drinking water wells, ensuring compliance with safety and quality standards.</li>
-          </ul>
-        </details>
-      </li>
-
-      <li class="job" data-reveal>
-        <div class="job__head">
-          <div>
-            <h3 class="job__role">Projects Engineer and Director</h3>
-            <p class="job__company">Albatros Ingenier&iacute;a &middot; Caracas, Venezuela</p>
-          </div>
-          <p class="job__dates">Sep 2008 &mdash; Jul 2019</p>
-        </div>
-        <details>
-          <summary>What I did</summary>
-          <ul>
-            <li>Designed and implemented a comprehensive maintenance plan for IT equipment, including internal network infrastructure, user configuration, and access permissions.</li>
-            <li>Deployed virtual and physical servers to support services including Active Directory, file server, printer server, CRM, and ERP systems.</li>
-            <li>Conducted computational simulations with CFD software, analyzing fluid flow in pipes, process equipment, fluid separation and mixing, particle transport, external and free surface flows, open channel flow, and aerodynamic resistance of vehicles and wing profiles.</li>
-            <li>Instructed basic and advanced courses on ANSYS CFX and ANSYS FLUENT, enhancing team capabilities in fluid dynamics simulations.</li>
-            <li>Supervised on-site assembly and erection of steel structures for housing complexes, ensuring compliance with engineering specifications and safety standards.</li>
-            <li>Delivered tailored in-company sales presentations, addressing specific client needs and requirements.</li>
-            <li>Maintained accurate accounting records, overseeing general bookkeeping, accounts payable and receivable, invoicing, and supplier payments.</li>
-            <li>Prepared financial reports and coordinated with a certified public accountant for audits and tax declarations.</li>
-            <li>Managed general maintenance of office infrastructure, including furniture and equipment, coordinating the procurement of cleaning supplies and snacks for staff and visitors.</li>
-          </ul>
-        </details>
-      </li>
-
-      <li class="job" data-reveal>
-        <div class="job__head">
-          <div>
-            <h3 class="job__role">Projects Engineer</h3>
-            <p class="job__company">Empresas Y&amp;V &middot; Caracas, Venezuela</p>
-          </div>
-          <p class="job__dates">Apr 2006 &mdash; Sep 2008</p>
-        </div>
-        <details>
-          <summary>What I did</summary>
-          <ul>
-            <li>Prepared data sheets, technical specifications, and calculation reports for pressure vessels in compliance with ASME Code, Section 8, Division 1, and atmospheric storage tanks according to API 650 standards.</li>
-            <li>Conducted water hammer studies for piping systems to assess and mitigate pressure surge risks.</li>
-            <li>Modeled static equipment using AutoPlant and Plant Design System (PDS), ensuring accurate representation of project specifications.</li>
-            <li>Coordinated PDS activities, including initial project configuration, loading of piping components per project piping plans, and configuring orthographic and isometric drawings.</li>
-            <li>Programmed EDEN modules for special components not available in PDS.</li>
-            <li>Extracted reports for bills of materials using Material Data Publisher and Microsoft Access.</li>
-            <li>Managed SmartPlant Instrumentation tasks, including importing instrument lists from Microsoft Excel and creating AutoCAD templates for automated Hook-Up plans.</li>
-          </ul>
-        </details>
-      </li>
+          <details{% if job.open %} open{% endif %}>
+            <summary>{{ job.summary | escape }}</summary>
+            <ul>
+              {% for bullet in job.bullets %}<li>{{ bullet | escape }}</li>{% endfor %}
+            </ul>
+          </details>
+        </li>
+      {% endfor %}
     </ol>
   </div>
 </section>
@@ -380,14 +157,10 @@ description: Backend software developer skilled in machine learning, cloud infra
     <div class="callout" data-reveal>
       <div>
         <p class="kicker">Open source</p>
-        <h2>Contributing to Dioxus</h2>
-        <p>
-          Dioxus is an open-source Rust framework for full-stack web, mobile and
-          desktop apps. My patches fix bugs and improve how Rust code is parsed
-          into HTML.
-        </p>
+        <h2>{{ cv.open_source.title | escape }}</h2>
+        <p>{{ cv.open_source.description | escape }}</p>
       </div>
-      <a class="btn btn--ghost" href="https://github.com/DioxusLabs/dioxus">
+      <a class="btn btn--ghost" href="{{ cv.open_source.url }}">
         View project <span aria-hidden="true">&rarr;</span>
       </a>
     </div>
@@ -398,19 +171,17 @@ description: Backend software developer skilled in machine learning, cloud infra
   <div class="wrap grid-2">
     <div class="info-card" data-reveal>
       <h3>Education</h3>
-      <p><strong>Universidad Sim&oacute;n Bol&iacute;var</strong> &middot; Caracas, Venezuela</p>
-      <p>Bachelor of Science (BS), Mechanical Engineering</p>
-      <p>September 2000 &mdash; May 2006</p>
+      <p><strong>{{ cv.education.school | escape }}</strong> &middot; {{ cv.education.location | escape }}</p>
+      <p>{{ cv.education.degree | escape }}</p>
+      <p>{{ cv.education.dates | escape }}</p>
     </div>
 
     <div class="info-card" data-reveal>
       <h3>Languages</h3>
       <ul class="langs">
-        <li><strong>Spanish</strong> <span>Native</span></li>
-        <li><strong>English</strong> <span>Advanced</span></li>
-        <li><strong>Portuguese</strong> <span>Advanced</span></li>
-        <li><strong>Italian</strong> <span>Beginner</span></li>
-        <li><strong>German</strong> <span>Beginner</span></li>
+        {% for language in cv.languages %}
+          <li><strong>{{ language.name | escape }}</strong> <span>{{ language.level | escape }}</span></li>
+        {% endfor %}
       </ul>
     </div>
   </div>
@@ -425,8 +196,8 @@ description: Backend software developer skilled in machine learning, cloud infra
       me is email; the formal version of everything above is one click away.
     </p>
     <div class="cta">
-      <a class="btn btn--primary" href="mailto:jjvn84@gmail.com">jjvn84@gmail.com</a>
-      <a class="btn" href="https://www.linkedin.com/in/juan-j-vasquez/">LinkedIn</a>
+      <a class="btn btn--primary" href="mailto:{{ cv.email }}">{{ cv.email }}</a>
+      <a class="btn" href="{{ cv.linkedin }}">LinkedIn</a>
       <a class="btn" href="{{ '/assets/juan-vasquez-cv.pdf' | relative_url }}" download>Download CV</a>
     </div>
   </div>

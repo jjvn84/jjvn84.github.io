@@ -1,0 +1,185 @@
+# Single source of truth for the portfolio and, later, the CV PDF.
+# Sections that are purely presentational (kickers, section notes, button
+# labels) stay in index.html; everything a PDF would need lives here.
+
+name: Juan Vásquez
+role: Backend developer
+location: Caracas, Venezuela
+email: jjvn84@gmail.com
+github: https://github.com/jjvn84
+linkedin: https://www.linkedin.com/in/juan-j-vasquez/
+
+hero:
+  lead: >-
+    I build the systems behind the product: backend services, data pipelines,
+    and computer vision that has to work in the real world.
+  sub: >-
+    Five years writing software, twenty in engineering. Comfortable moving
+    between Python, Rust and AWS, and between the technical problem and the
+    client conversation that decides what actually gets built.
+
+panel:
+  - label: Currently
+    value: Customer Success Manager
+    sub: Spiro.AI
+  - label: Focus
+    value: Backend · Data · Computer Vision
+  - label: Based in
+    value: Caracas, Venezuela · UTC−4
+
+projects:
+  - title: Installation report review
+    tag: Internal tool
+    featured: true
+    description: >-
+      A review console for field installation reports. It polls Airtable for
+      new tasks, pulls technician data from XOi Vision, and shows reviewers the
+      QA questions and supporting evidence in one screen. Junior and senior
+      reviewer roles, live updates over WebSocket, and results written back to
+      Airtable.
+    stack: [Python, Flask, Bootstrap, Airtable, WebSocket]
+
+  - title: Rooftop asset detection
+    tag: Computer vision
+    description: >-
+      A custom model that scans aerial imagery for items of interest on
+      rooftops, giving a client a new pipeline of sales prospects.
+    stack: [Python, PyTorch, AWS EC2, Docker]
+
+  - title: Zapier integrations
+    tag: Automation
+    description: >-
+      Connected corporate email, Spiro, HubSpot, Dropbox and JotForm into
+      automated workflows, with error handling and rollback of changes made by
+      unauthorized users.
+    stack: [Zapier, HubSpot, Dropbox, JotForm]
+
+  - title: Zoho Analytics dashboards
+    tag: Analytics
+    description: >-
+      Dashboards and reports built on SQL queries that restructure raw client
+      data into the metrics decision-makers need: bar charts, pivot tables,
+      maps and Sankey diagrams.
+    stack: [Zoho Analytics, SQL]
+
+  - title: Shopping List
+    tag: Side project
+    description: >-
+      A mobile and desktop app for keeping track of groceries, built entirely
+      in Rust with Dioxus. My entry point into mobile development and the
+      framework.
+    stack: [Rust, Dioxus, SQLite, Tailwind CSS]
+    link: https://github.com/jjvn84/shopping_list
+
+skill_groups:
+  - title: Languages & frameworks
+    items: [Python, Rust, SQL, PyTorch, Flask, FastAPI, Dioxus, Actix-Web]
+
+  - title: Cloud & infrastructure
+    items: [AWS EC2, Lightsail, Lambda, S3, IAM, Docker, Linux, GitHub Actions, CodeDeploy, Terraform (basics)]
+
+  - title: Data & machine learning
+    items: [Machine Learning, Deep Learning, Computer Vision, Signal Processing, ETL, Data Pipelines, Zoho Analytics]
+
+  - title: Engineering & delivery
+    items: [API development, API integration, Zapier, Workflow automation, AI-assisted development, HelpScout, Customer success]
+
+experience:
+  - role: Customer Success Manager
+    company: Spiro.AI
+    location: Caracas, Venezuela (Remote)
+    dates: Feb 2024 — Present
+    open: true
+    summary: What I do
+    bullets:
+      - Develop custom automated workflows to handle the customer's data and internal processes.
+      - Create customized dashboards and reports for clients' Business Intelligence departments, leveraging platforms like Zoho Analytics.
+      - Develop advanced SQL queries to extract meaningful insights from complex datasets.
+      - Analyze and map client data fields to ensure accurate integration into the Spiro system, including data sorting and restructuring.
+      - Manage and resolve client support tickets, ensuring timely and effective solutions.
+      - Act as a technical liaison between clients and the development team to report bugs, suggest improvements, and implement workarounds.
+      - Run weekly and monthly video meetings with clients to address issues, provide guidance, and answer questions about the Spiro app.
+
+  - role: Software Engineer
+    company: HI4AI (Human Intelligence for Artificial Intelligence)
+    location: Caracas, Venezuela (Remote)
+    dates: Mar 2021 — Feb 2024
+    open: true
+    summary: What I built
+    bullets:
+      - Led multiple projects and proof of concepts (POCs) focused on leveraging technology to address client challenges through system integration and web application development.
+      - Deployed scalable solutions primarily on AWS (EC2, Lightsail, Lambda) and occasionally on Azure Virtual Machines, securing architecture through robust IAM policies and stringent S3 bucket owner enforcement.
+      - Developed a custom computer vision model to analyze aerial images, identifying items of interest on rooftops to assist clients in generating sales prospects.
+      - Built several tools to convert data from JSON, XML, or plain text formats into various file structures or directly into databases.
+      - Designed and implemented a web app for reviewing and approving installation reports, integrating data from the client's XOi account and sending results to Airtable.
+      - Developed a custom keypoint detection model to evaluate hand-drawn sketches against specified validity criteria.
+      - Created an automated tool to monitor Jira tasks, providing alerts based on specific conditions, along with a web app for managing tool activation and filter settings.
+      - Created a web app to analyze real estate market data, summarizing recent sales information for client decision-making.
+      - Used Python as the primary language and supported the team in debugging JavaScript code.
+      - Gained experience using Docker containers for application development.
+
+  - role: Drilling Specialist and Director
+    company: VENPERCA Proyectos y Servicios
+    location: Caracas, Venezuela
+    dates: Jul 2019 — Sep 2020
+    summary: What I did
+    bullets:
+      - Calculated head losses from wells to the main water line, selecting and installing appropriate well pumps to optimize water flow and efficiency.
+      - Designed and installed electrical control panels for well pumps and hydro-pneumatic systems, ensuring reliable operation and maintenance of water supply systems.
+      - Operated XY-3 well drilling machines to drill drinking water wells, ensuring compliance with safety and quality standards.
+
+  - role: Projects Engineer and Director
+    company: Albatros Ingeniería
+    location: Caracas, Venezuela
+    dates: Sep 2008 — Jul 2019
+    summary: What I did
+    bullets:
+      - Designed and implemented a comprehensive maintenance plan for IT equipment, including internal network infrastructure, user configuration, and access permissions.
+      - Deployed virtual and physical servers to support services including Active Directory, file server, printer server, CRM, and ERP systems.
+      - Conducted computational simulations with CFD software, analyzing fluid flow in pipes, process equipment, fluid separation and mixing, particle transport, external and free surface flows, open channel flow, and aerodynamic resistance of vehicles and wing profiles.
+      - Instructed basic and advanced courses on ANSYS CFX and ANSYS FLUENT, enhancing team capabilities in fluid dynamics simulations.
+      - Supervised on-site assembly and erection of steel structures for housing complexes, ensuring compliance with engineering specifications and safety standards.
+      - Delivered tailored in-company sales presentations, addressing specific client needs and requirements.
+      - Maintained accurate accounting records, overseeing general bookkeeping, accounts payable and receivable, invoicing, and supplier payments.
+      - Prepared financial reports and coordinated with a certified public accountant for audits and tax declarations.
+      - Managed general maintenance of office infrastructure, including furniture and equipment, coordinating the procurement of cleaning supplies and snacks for staff and visitors.
+
+  - role: Projects Engineer
+    company: Empresas Y&V
+    location: Caracas, Venezuela
+    dates: Apr 2006 — Sep 2008
+    summary: What I did
+    bullets:
+      - Prepared data sheets, technical specifications, and calculation reports for pressure vessels in compliance with ASME Code, Section 8, Division 1, and atmospheric storage tanks according to API 650 standards.
+      - Conducted water hammer studies for piping systems to assess and mitigate pressure surge risks.
+      - Modeled static equipment using AutoPlant and Plant Design System (PDS), ensuring accurate representation of project specifications.
+      - Coordinated PDS activities, including initial project configuration, loading of piping components per project piping plans, and configuring orthographic and isometric drawings.
+      - Programmed EDEN modules for special components not available in PDS.
+      - Extracted reports for bills of materials using Material Data Publisher and Microsoft Access.
+      - Managed SmartPlant Instrumentation tasks, including importing instrument lists from Microsoft Excel and creating AutoCAD templates for automated Hook-Up plans.
+
+open_source:
+  title: Contributing to Dioxus
+  url: https://github.com/DioxusLabs/dioxus
+  description: >-
+    Dioxus is an open-source Rust framework for full-stack web, mobile and
+    desktop apps. My patches fix bugs and improve how Rust code is parsed into
+    HTML.
+
+education:
+  school: Universidad Simón Bolívar
+  location: Caracas, Venezuela
+  degree: Bachelor of Science (BS), Mechanical Engineering
+  dates: September 2000 — May 2006
+
+languages:
+  - name: Spanish
+    level: Native
+  - name: English
+    level: Advanced
+  - name: Portuguese
+    level: Advanced
+  - name: Italian
+    level: Beginner
+  - name: German
+    level: Beginner
