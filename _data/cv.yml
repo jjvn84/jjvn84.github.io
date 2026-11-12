@@ -39,6 +39,15 @@ projects:
       Airtable.
     stack: [Python, Flask, Bootstrap, Airtable, WebSocket]
 
+  - title: Field reports to PostgreSQL
+    tag: Data pipeline
+    description: >-
+      A scheduled ETL that pulls field reports from a reporting API, flattens
+      their nested XML into relational tables, and loads them into PostgreSQL.
+      It creates tables and adds columns on the fly, skips records already
+      loaded, and runs daily from a Docker container with cron.
+    stack: [Python, XML, PostgreSQL, Docker, cron]
+
   - title: Rooftop asset detection
     tag: Computer vision
     description: >-
