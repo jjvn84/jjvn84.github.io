@@ -80,6 +80,15 @@ projects:
     stack: [Rust, Dioxus, SQLite, Tailwind CSS]
     link: https://github.com/jjvn84/shopping_list
 
+  - title: Tetrapong
+    tag: Side project
+    description: >-
+      A four-paddle take on Pong built in Rust with Bevy: one paddle per wall,
+      three computer opponents, individual lives, and collectible power-ups
+      that resize paddles, alter speeds or grant lives.
+    stack: [Rust, Bevy]
+    link: https://github.com/jjvn84/tetrapong
+
 skill_groups:
   - title: Languages & frameworks
     items: [Python, Rust, SQL, PyTorch, Flask, FastAPI, Dioxus, Actix-Web]
